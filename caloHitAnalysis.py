@@ -14,7 +14,7 @@ from ROOT import *
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-inFile='/home/Amanda/lcgeo/reco_200a.100GeV.0phi_2.slcio'
+inFile='fileAfterRecon.slcio'
 
 # if the layer info of each hit is necessary for the analysis, set to "True". If not, set to "False"
 layerInfo=True
