@@ -17,7 +17,7 @@ from ROOT import *
 inFile='fileAfterRecon.slcio'
 
 # if the layer info of each hit is necessary for the analysis, set to "True". If not, set to "False"
-layerInfo=True
+layerInfo=False
 
 #create a reader
 readerL = LcioReader(inFile)
