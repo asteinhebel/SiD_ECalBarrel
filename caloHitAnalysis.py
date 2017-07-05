@@ -17,7 +17,7 @@ from ROOT import *
 inFile='fileAfterRecon.slcio'
 
 # if the layer info of each hit is necessary for the analysis, set to "True". If not, set to "False"
-layerInfo=False
+layerInfo=True
 
 #create a reader
 readerL = LcioReader(inFile)
@@ -48,7 +48,7 @@ if not layerInfo:
         # initialize summing variables to total all the calorimeter hits in a given event
         hitTotal=0.	
         # get the collection from the event
-        hitCollection = dep.getCollection( 'HCalBarrelHits' )#### ensure that this variable matches the variable used to record layer information
+        hitCollection = dep.getCollection( 'ECalBarrelHits' )#### ensure that this variable matches the variable used to record layer information
         # loop and sum over all hits in the event
         for hit in hitCollection:
             hitTotal+=hit.getEnergy()
@@ -75,7 +75,7 @@ if layerInfo:
         if eventNo%10==0:
             print "recording layers of event "+str(eventNo)
         # get a hit collection
-        ecalHits = event.getCollection( 'HCalBarrelHits' ) ####can change to other variables, such as 'ECalBarrelHits', etc
+        ecalHits = event.getCollection( 'ECalBarrelHits' ) ####can change to other variables, such as 'ECalBarrelHits', etc
         # get the cell ID encoding string from the collection parameters
         cellIdEncoding = ecalHits.getParameters().getStringVal( EVENT.LCIO.CellIDEncoding )
         # define a cell ID decoder for the collection
@@ -103,7 +103,7 @@ if layerInfo:
         hitTotal=0.	
         layerTotal=[0]*nmbLayers
         # get the collection from the event
-        hitCollection = dep.getCollection( 'HCalBarrelHits' )#### ensure that this variable matches the variable used to record layer information
+        hitCollection = dep.getCollection( 'ECalBarrelHits' )#### ensure that this variable matches the variable used to record layer information
         # record which hit to find cooresponding hit layer value
         hitNo=0
         # loop and sum over all hits in the event
